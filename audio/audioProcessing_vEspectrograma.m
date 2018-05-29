@@ -1,3 +1,6 @@
+%% Processamento de audio por espectrograma
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 pkg load signal;
 
 [rawData,fs,nbits] = wavread('audio.wav');
