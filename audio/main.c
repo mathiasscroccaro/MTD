@@ -56,7 +56,7 @@ int main()
 	pid_t pid;
 	int status,error;
 	
-	char *argvOctave[] = {"octave-cli","audioProcessing.m",NULL};
+	char *argvOctave[] = {"octave-cli","audioProcessing_vAdaptiveFilter.m",NULL};
 	char *argvRecord[] = {"arecord","-D","mic_sv","-c2","-r","48000","-f","S32_LE","-t","wav","-V","stereo","-v","audio.wav","-d","3",NULL};
 
 	init();
