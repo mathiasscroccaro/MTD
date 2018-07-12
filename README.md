@@ -1,4 +1,4 @@
-# Arquivos utilizados na programação da Raspberry Pi 
+# Projeto MTD - Raspberry Pi 
 
 Neste repositório serão encontrados os arquivos utilizados no projeto MTD para análise de dados, processamento de sinais, configuração da RPI.
 
@@ -16,8 +16,7 @@ Para instalar a imagem do Raspbian no cartão sd, seguir os seguintes passos:
 
 4) Executar o comando para cópia da imagem ao cartão:
 
-	$ dd bs=4M if=/pi_image_path.img of=/dev/sdX
-	$ sync
+	$ dd bs=4M if=/pi_image_path.img of=/dev/sdX && sync
 
 ## Sensor de Áudio
 
