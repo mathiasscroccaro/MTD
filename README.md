@@ -11,9 +11,11 @@ Para instalar a imagem do Raspbian no cartão sd, seguir os seguintes passos:
 2) Baixar a imagem do Raspbian;
 
 3) Verificar qual a partição do cartão SD:
+
 	$ fdisk -l
 
 4) Executar o comando para cópia da imagem ao cartão:
+
 	$ dd bs=4M if=/pi_image_path.img of=/dev/sdX
 	$ sync
 
