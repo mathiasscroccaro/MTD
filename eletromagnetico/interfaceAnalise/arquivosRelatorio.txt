@@ -1,0 +1,2 @@
+medidas/07-06-2018/L02/M20/espectro_0_500_cc.asc	0.0	500.0
+medidas/07-06-2018/L02/M05/espectro_0_500_cc.asc	0.0	500.0
