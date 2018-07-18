@@ -3,13 +3,16 @@ clear all;
 
 arquivo = fopen('arquivosRelatorio.txt');
 
-dados = textscan(arquivo,'%s %f %f');
+dados = textscan(arquivo,'%s %f %f %s %s');
 
-dadosMedidas = dados(1)
+dadosMedidas = dados(1);
 fMinimas = dados(2);
 fMaximas = dados(3);
+medidores = dados(4);
+periodo = dados(5);
 
-nMedidas = size(char(dadosMedidas))(1)
+nMedidas = size(char(dadosMedidas))(1);
+legenda = {};
 
 pFigure = figure();
 hold all;
@@ -27,6 +30,8 @@ for medida = 1:nMedidas
   
   x = excursao.*(1:size(dado)(1))./size(dado)(1) + fMinima;
   y = dado;
+
+  legenda{medida} = strcat(char(medidores)(medida,1:end),"--",char(periodo)(medida,1:end));
   
   plot(x,y);
   
@@ -38,6 +43,7 @@ fMaxima = max(cell2mat(fMaximas));
 title("Espectro Eletromagnetico")
 xlabel("Frequencias [Hz]")
 ylabel("Potencia [dBm]")
+legend(legenda)
 
 %print(pFigure,"relatorio.pdf","-dpdflatexstandalone");
 %system("pdflatex relatorio");

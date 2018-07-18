@@ -47,6 +47,13 @@ class Medidor(models.Model):
     foto = models.FilePathField(path=BASE_DIR,default='/',recursive=True)
 
 class MedidaEletromagnetica(models.Model):
+
+    PERIODOS = (
+        ("manha","manha"),
+        ("tarde","tarde"),
+        ("noite","noite"),    
+    )
+
     medidor = models.ForeignKey(Medidor, on_delete=models.CASCADE)
     data = models.DateField()
     dado = models.FilePathField(path=BASE_DIR,default='/',recursive=True)
@@ -57,6 +64,7 @@ class MedidaEletromagnetica(models.Model):
     fonteChaveada = models.BooleanField(default=False)
     correnteFonte = models.PositiveSmallIntegerField(default=0)
     comentarios = models.TextField(max_length=500)
+    periodo = models.CharField(max_length=30,choices=PERIODOS,default="tarde")
 
 class MedidaTermica(models.Model):
     

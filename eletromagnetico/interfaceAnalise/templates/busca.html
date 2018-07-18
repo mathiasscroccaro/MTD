@@ -7,17 +7,17 @@
 
     <table style="width:70%">
         <tr>
-            <th></th><th>Data</th><th>Medidor</th><th>É fraudado?</th><th>Frequência Mímima</th><th>Frequência Máxima</th><th>Comentários</th> 
+            <th></th><th>Data</th><th>Medidor</th><th>É fraudado?</th><th>Periodo</th><th>Frequência Mímima</th><th>Frequência Máxima</th><th>Comentários</th> 
         </tr>        
         <form action="/busca/" method="post">
     	{% csrf_token %}
         {% for medida in medidas %}        
         <tr>
-            <th><input type="checkbox" name="{{medida.id}}" value="requisitada"></th><th>{{medida.data}}</th><th>{{medida.medidor.medidor}}</th><th>{{medida.medidor.fraudado}}</th><th>{{medida.fMinima}}</th><th>{{medida.fMaxima}}</th><th>{{medida.comentarios}}</th> <br>
+            <th><input type="checkbox" name="{{medida.id}}" value="requisitada"></th><th>{{medida.data}}</th><th>{{medida.medidor.medidor}}</th><th>{{medida.medidor.fraudado}}</th><th>{{medida.periodo}}</th><th>{{medida.fMinima}}</th><th>{{medida.fMaxima}}</th><th>{{medida.comentarios}}</th>
         </tr>        
         {% endfor %}
         <tr>    	
-            <th><input type="submit" value="Gerar relatório" /></th>
+            <th></th><th></th><th></th><th></th><th><input type="submit" value="Gerar relatório" /></th>
         </tr>
 	</form>
     </table>
