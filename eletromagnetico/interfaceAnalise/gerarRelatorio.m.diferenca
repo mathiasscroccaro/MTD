@@ -1,3 +1,6 @@
+% Este script plota a diferenca entre o primeiro e o segundo espectro eletromagnetico
+% selecionados na interface web
+
 close all;
 clear all;
 
@@ -17,25 +20,33 @@ legenda = {};
 pFigure = figure();
 hold all;
 
+dadoTodos = [];
+
 for medida = 1:nMedidas
 
   caminhoDado = char(dadosMedidas)(medida,1:end);
   
   fMinima = cell2mat(fMinimas)(medida);
   fMaxima = cell2mat(fMaximas)(medida);
-  
-  dado = dlmread(char(textscan(caminhoDado,'%s')))(5:end,1);
+    
+  dado = dlmread(char(textscan(caminhoDado,'%s')))(5:end,1);  
+    
+  dadoTodos = [dadoTodos dlmread(char(textscan(caminhoDado,'%s')))(5:end,1)];
   
   excursao = fMaxima - fMinima;
   
   x = excursao.*(1:size(dado)(1))./size(dado)(1) + fMinima;
   y = dado;
 
+  plot(x,y)
+
   legenda{medida} = strcat(char(medidores)(medida,1:end),"--",char(periodo)(medida,1:end));
   
-  plot(x,y);
-  
 endfor
+
+plot(x,dadoTodos(:,2)-dadoTodos(:,1))
+
+legenda{medida+1} = "Subtracao"
 
 fMinima = min(cell2mat(fMinimas));
 fMaxima = max(cell2mat(fMaximas));
@@ -43,7 +54,7 @@ fMaxima = max(cell2mat(fMaximas));
 title("Espectro Eletromagnetico")
 xlabel("Frequencia [MHz]")
 ylabel("Potencia [dBm]")
-axis([fMinima fMaxima -90 -30])
+axis([fMinima fMaxima -90 20])
 legend(legenda)
 
 %print(pFigure,"relatorio.pdf","-dpdflatexstandalone");

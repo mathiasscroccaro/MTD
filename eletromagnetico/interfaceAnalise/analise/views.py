@@ -60,25 +60,38 @@ def encontrarPadrao(arquivo):
                     fMinimo = dados[1]
                     fMaximo = dados[2]
 
+def encontrarPadrao2(arquivo):
+    caminho = list(re.split('/',arquivo))[1:]
+    padrao = ["%d-%d-%d","L%s","M%s","%s_%d_%d"]
+    data = None
+    medidor = None
+    lote = None
+    fMinimo = None
+    fMaximo = None
+    tipo = None
+    periodo = None    
+    for subcaminho in caminho:
+        for contador,subpadrao in enumerate(padrao):
+            if (scanf(subpadrao,subcaminho)):
+                dados = scanf(subpadrao,subcaminho)
+                if (contador == 0):
+                    data = datetime.date(dados[2],dados[1],dados[0])
+                if (contador == 1):
+                    lote = dados[0]
+                if (contador == 2):
+                    medidor = dados[0]
+                    medidor = dados[1]
+                if (contador == 3):
+                    comentario = dados[0]
+                    fMinimo = dados[1]
+                    fMaximo = dados[2]
+
 
     if (data==None or medidor==None or lote==None or fMinimo==None or fMaximo==None or periodo==None):
-        #print("Algum elemento não foi medido")
-        #print(caminho)
-        #print(data)
-        #print(lote)
-        #print(fMinimo)
-        #print(fMaximo)
-        #print(periodo)	
         return
     else:
-        #print("L%s-M%s"%(lote,medidor))
-        try:
-            #print(caminho)
-            #print("Medidor: %s Lote: %s fMinimo: %d fMaximo: %d Comentario: %s Periodo: %s" % (medidor,lote,fMinimo,fMaximo,comentario,periodo))
-            #print(data)            
+        try:       
             medidor = Medidor.objects.get(medidor = "L%s-M%s"%(lote,medidor))
-            #print("Medidor %s Lote %s fMinimo %s fMaximo %s periodo %s data %s" % (medidor,lote,fMinimo,fMaximo,periodo,data))
-            #print(data)
             MedidaEletromagnetica.objects.update_or_create(medidor=medidor,data=data,dado=arquivo,fMinima=fMinimo,fMaxima=fMaximo,comentarios=comentario,periodo=periodo)
         except:
             print("erro ao adicionar L%s-M%s" % (lote,medidor))               
