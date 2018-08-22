@@ -22,6 +22,8 @@ Para instalar a imagem do Raspbian no cartão sd, seguir os seguintes passos:
 
 O sensor de Áudio está completo. No repositório do sensor de áudio será encontrado os algoritmos utilizados para reconhecimento de um sinal de relé.
 
+----
+
 ## Sensor eletromagnético
 
 O sensor eletromagnético está em andamento. No repositório do sensor eletromagnético será encontrado algoritmos para análise dos dados.
