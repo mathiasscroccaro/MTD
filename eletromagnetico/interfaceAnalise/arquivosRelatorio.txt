@@ -1,3 +1,2 @@
-medidas/07-06-2018/L02/M02/floor_0_500.asc	0.0	500.0	L02-M02	tarde
-medidas/07-05-2018/L02/M02/floor_0_500.asc	0.0	500.0	L02-M02	tarde
-medidas/17-07-2018/tarde/L02_M02/floor_100-500.asc	100.0	500.0	L02-M02	tarde
+/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/20-08-2018/L02_M04_CL_CC_0-1000.asc	0	1000.0	M04 NFraudado
+/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/20-08-2018/L02_M15_CL_CC_0-1000.asc	0	1000.0	M15 fraudado 	

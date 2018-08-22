@@ -44,8 +44,6 @@ for medida = 1:nMedidas
   
 endfor
 
-plot(x,dadoTodos(:,2)-dadoTodos(:,1))
-
 legenda{medida+1} = "Subtracao"
 
 fMinima = min(cell2mat(fMinimas));
@@ -57,9 +55,23 @@ ylabel("Potencia [dBm]")
 axis([fMinima fMaxima -90 20])
 legend(legenda)
 
-%print(pFigure,"relatorio.pdf","-dpdflatexstandalone");
-%system("pdflatex relatorio");
+figure();
 
-print relatorio.pdf
+plot(x,dadoTodos(:,2)-dadoTodos(:,1))
+title("Diferença entre espectros eletromagneticos")
+xlabel("Frequencia [MHz]")
+ylabel("Potencia [dBm]")
+axis([fMinima fMaxima -15 15])
+legend(strcat('(',char(legenda{1}),') ',' - ',' (',char(legenda{2}),')'))
+
+
+figure(1)
+print relatorio1.pdf
 sleep(2)
-system("mv relatorio.pdf media/relatorio.pdf")
+system("mv relatorio1.pdf media/relatorio1.pdf")
+
+figure(2)
+print relatorioDiferenca.pdf
+sleep(2)
+system("mv relatorioDiferenca.pdf media/relatorio2.pdf")
+

@@ -1,3 +1,6 @@
+% Arquivo utilizado para plotar todos os dados selecionados na interface web
+% de maneira junta
+
 close all;
 clear all;
 
