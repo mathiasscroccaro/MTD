@@ -1,2 +1,5 @@
 *.wav
 octave-workspace
+./eletromagnetico/interfaceAnalise/medidas/*
+./eletromagnetico/interfaceAnalise/media/*
+./eletromagnetico/interfaceAnalise/arquivosRelatorio.txt
