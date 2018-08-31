@@ -104,6 +104,10 @@ for i in range(201):
             print("Loss: ", loss)
         print('DONE WITH EPOCH')
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+saver = tf.train.Saver()
+save_path = saver.save(sess,os.path.join(dir_path,"session"))
 
 
 

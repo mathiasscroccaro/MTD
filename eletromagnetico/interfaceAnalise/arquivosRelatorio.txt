@@ -1,2 +1,2 @@
-/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/20-08-2018/L02_M04_CL_CC_0-1000.asc	0	1000.0	M04 NFraudado
-/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/20-08-2018/L02_M15_CL_CC_0-1000.asc	0	1000.0	M15 fraudado 	
+/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/28-08-2018/L02_M04/L02_M04_CL_CC_dB_320-490.asc	320	490	espectro L02M04
+/home/mathias/MTD/eletromagnetico/interfaceAnalise/medidas/28-08-2018/L02_M15/L02_M15_CL_CC_dB_320-490.asc	320	490	espectro L02M15 	

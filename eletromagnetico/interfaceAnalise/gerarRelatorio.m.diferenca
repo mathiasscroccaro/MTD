@@ -58,7 +58,7 @@ legend(legenda)
 figure();
 
 plot(x,dadoTodos(:,2)-dadoTodos(:,1))
-title("Diferença entre espectros eletromagneticos")
+title("Diferenca entre espectros eletromagneticos")
 xlabel("Frequencia [MHz]")
 ylabel("Potencia [dBm]")
 axis([fMinima fMaxima -15 15])
