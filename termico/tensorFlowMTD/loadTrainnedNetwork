@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+
+import os
+import numpy as np
+from skimage import data
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import random
+import statistics
+
+# Evaluate the current working directory
+ROOT_PATH = os.getcwd()
+
+################################################################################
+
+# Function that organize and catch the data from image database and classify them
+def load_data(data_directory):
+    images = []
+    file_names = [os.path.join(data_directory, f)
+                  for f in os.listdir(data_directory)
+                  if f.endswith(".ppm")]
+    for f in file_names:
+        images.append(data.imread(f))
+    return images
+
+################################################################################
+
+# Initializing de session and importing the trainned model
+sess = tf.Session()
+saver = tf.train.import_meta_graph("modelo.meta")
+saver.restore(sess,tf.train.latest_checkpoint("./"))
+
+graph = tf.get_default_graph()
+
+x = graph.get_tensor_by_name("x:0")
+correct_pred = graph.get_tensor_by_name("prediction:0")
+
+# Getting the testing image data
+test_data_directory = os.path.join(ROOT_PATH, "Evaluate")
+images = load_data(test_data_directory)
+images = np.array(images);
+
+# Run the "correct_pred" operation
+predicted = sess.run([correct_pred], feed_dict={x: images})[0]
+
+# Print the real and predicted labels
+
+mode = statistics.mode(predicted)
+nPredicted = list(predicted).count(mode)
+nPredictions = len(predicted)
+
+print("\n\n--------------------------------")
+print("Maior ocorrencia das predicoes: {0}".format(mode))
+print("Predicoes: {0}/{1} = {2:.3} %".format(nPredicted,nPredictions,100*nPredicted/nPredictions))
+print("PROVAVEL MEDIDOR: {0}".format("15" if mode == 0 else "04"))
+print("--------------------------------\n\n")
