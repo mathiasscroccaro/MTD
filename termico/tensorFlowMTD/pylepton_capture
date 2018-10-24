@@ -4,10 +4,17 @@ import sys
 import os
 import numpy as np
 import cv2
+import time
+
+from datetime import datetime
 from pylepton import Lepton
+from matplotlib import pyplot as plt
 
 ROOT_PATH = os.getcwd()
-N_SAMPLES = 10
+N_SAMPLES = 1000
+
+print("Numero de amostras: {}".format(N_SAMPLES))
+time.sleep(1)
 
 def capture(flip_v = False, device = "/dev/spidev0.0"):
   with Lepton(device) as l:
@@ -21,9 +28,14 @@ def capture(flip_v = False, device = "/dev/spidev0.0"):
 if __name__ == '__main__':
   
   counter = 0
-
-  while(counter<N_SAMPLES)
-
-    image = capture(flip_v = options.flip_v, device = options.device)
+  
+  while(counter<N_SAMPLES):
+    
+    print("Amostra numero {}".format(counter))
+    
+    image = capture()
+    cv2.imshow('image',image)
+    cv2.waitKey(1)
     cv2.imwrite(os.path.join(ROOT_PATH,"Evaluate/{0}.ppm".format(counter)),image)
     counter = counter+1
+    time.sleep(0.1)
